@@ -1,6 +1,6 @@
 from pyfaidx import Fasta
 from tqdm import tqdm
-from triesketch import * 
+from triesketch.utils import *
 
 # loading k-mers from index into the sketch
 def build_kmer_index(genome_file, obj, k):
@@ -26,10 +26,18 @@ def build_kmer_index(genome_file, obj, k):
             obj.insert(kmer)
 
     print(f"All {k}-mers have been added to the object.")
-    
-    
-naive_sketch = NaiveSketch()
 
+# runner
+def main():
+        
+    genome_file = "/content/drive/MyDrive/GRCh38/GRCh38_chr1.fna"  # Path to your GRCh38 genome file
+    tries = get_tries()
+    k = 21  # Set your desired k-mer length
     
-genome_file = "/content/drive/MyDrive/GRCh38/GRCh38_chr1.fna"  # Path to your GRCh38 genome file
-k = 21  # Set your desired k-mer length
+    for trie in tries:
+        print(f"Building index for {trie.__name__}...")
+        build_kmer_index(genome_file, trie, k)
+        print(f"Index built for {trie.__name__}.\n")
+    
+if __name__ == "__main__":
+    main()
