@@ -38,5 +38,6 @@ k = 21  # Set your desired k-mer length
 
 build_kmer_index(genome_file, patricia_trie, k)
 
+print(type(patricia_trie))
 patricia_trie.print_trie()
 

@@ -84,6 +84,7 @@ class PatriciaTrie():
         return i
     
     def print_trie(self, node=None, indent=""):
+        print("entered")
         if node is None:
             node = self.root
 
@@ -93,5 +94,4 @@ class PatriciaTrie():
 
         # Recurse for each child with increased indentation
         for child_key, child_node in node.children.items():
-            print("error")
             self.print_trie(child_node, indent + "    ")
