@@ -1,6 +1,6 @@
 from pyfaidx import Fasta
 from tqdm import tqdm
-from triesketch import *
+from triesketch import * 
 
 # loading k-mers from index into the sketch
 def build_kmer_index(genome_file, obj, k):
