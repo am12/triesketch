@@ -10,9 +10,12 @@ class TrieNode:
                 return child
         return None
 
-class Trie:
+class NaiveTrie:
     def __init__(self):
         self.root = TrieNode()
+    
+    def __name__(self):
+        return "NaiveTrie"
 
     def insert(self, word):
         current = self.root

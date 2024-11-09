@@ -30,14 +30,14 @@ def build_kmer_index(genome_file, obj, k):
 # runner
 def main():
         
-    genome_file = "/content/drive/MyDrive/GRCh38/GRCh38_chr1.fna"  # Path to your GRCh38 genome file
-    tries = get_tries()
+    genome_file = "./data/phiX174_phage.fasta"  # Path to your GRCh38 genome file
+    tries, names = get_tries()
     k = 21  # Set your desired k-mer length
     
-    for trie in tries:
-        print(f"Building index for {trie.__name__}...")
+    for trie, name in zip(tries, names):
+        print(f"Building index for {name}...")
         build_kmer_index(genome_file, trie, k)
-        print(f"Index built for {trie.__name__}.\n")
+        print(f"Index built for {name}.\n")
     
 if __name__ == "__main__":
     main()

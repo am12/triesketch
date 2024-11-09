@@ -7,6 +7,9 @@ class PatriciaTrieNode():
 class PatriciaTrie():
     def __init__(self):
         self.root = PatriciaTrieNode()
+        
+    def __name__(self):
+        return "PatriciaTrie"
 
     def insert(self, word):
         current = self.root
