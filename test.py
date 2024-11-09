@@ -1,6 +1,7 @@
 from pyfaidx import Fasta
 from tqdm import tqdm
 from triesketch import * 
+from renee_patricia_trie import PatriciaTrie
 import sys
 
 # loading k-mers from index into the sketch
@@ -29,9 +30,11 @@ def build_kmer_index(genome_file, obj, k):
     print(f"All {k}-mers have been added to the object.")
     
     
-naive_sketch = NaiveSketch()
+patricia_trie = PatriciaTrie()
 
     
-genome_file = "/content/drive/MyDrive/GRCh38/GRCh38_chr1.fna"  # Path to your GRCh38 genome file
+genome_file = "phiX174_phage.fasta"  # Path to your phage genome file
 k = 21  # Set your desired k-mer length
+
+build_kmer_index(genome_file, patricia_trie, k)
 
