@@ -95,3 +95,18 @@ class PatriciaTrie():
         for child_key, child_node in node.children.items():
             print("error")
             self.print_trie(child_node, indent + "    ")
+
+
+    def print_trie_to_list(self, node=None, key_list=None, indent = ""):
+        if node is None:
+            node = self.root
+        if key_list is None:
+            key_list = []
+
+        end_marker = "(End of Word)" if node.is_end_of_word else ""
+        key_list.append(f"{indent}{node.key} {end_marker}")
+        #if node.is_end_of_word:
+        #    key_list.append(node.key)  # Append the key if it's an end-of-word node
+
+        for child_key, child_node in node.children.items():
+            self.print_trie_to_list(child_node, key_list, indent + "    ")

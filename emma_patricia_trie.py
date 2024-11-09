@@ -77,3 +77,22 @@ build_kmer_index_python(genome_file, python_patricia_trie, k)
 
 #for kmer, value in python_patricia_trie.items():
 #    print(kmer)
+
+
+
+custom_kmers = []
+patricia_trie.print_trie_to_list()  # Modify your print_trie method to append keys
+
+# Print patricia-trie keys as a flat list
+patricia_kmers = list(python_patricia_trie.keys())
+
+# Compare the two lists
+print("Comparing custom Patricia Trie and patricia-trie:")
+print("Custom Patricia Trie kmers:", custom_kmers)
+print("Patricia Trie kmers from the package:", patricia_kmers)
+
+# You can also compare the two directly using set operations
+if set(custom_kmers) == set(patricia_kmers):
+    print("Both tries contain the same k-mers.")
+else:
+    print("The k-mers differ between the custom Patricia Trie and the patricia-trie package.")
