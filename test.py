@@ -25,8 +25,8 @@ def build_kmer_index(genome_file, obj, k):
         # Use tqdm to show progress for the k-mer extraction
         for i in tqdm(range(seq_len), desc=f"Processing {record.name}"):
             kmer = sequence[i:i + k]
+            #print(kmer)
             obj.insert(kmer)
-
     print(f"All {k}-mers have been added to the object.")
     
     
@@ -37,4 +37,6 @@ genome_file = "phiX174_phage.fasta"  # Path to your phage genome file
 k = 21  # Set your desired k-mer length
 
 build_kmer_index(genome_file, patricia_trie, k)
+
+patricia_trie.print_trie()
 

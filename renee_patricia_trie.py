@@ -82,3 +82,16 @@ class PatriciaTrie():
         while i < len(str1) and i < len(str2) and str1[i] == str2[i]:
             i += 1
         return i
+    
+    def print_trie(self, node=None, indent=""):
+        if node is None:
+            node = self.root
+
+        # Indicate if this is the end of a word
+        end_marker = "(End of Word)" if node.is_end_of_word else ""
+        print(f"{indent}{node.key} {end_marker}")
+
+        # Recurse for each child with increased indentation
+        for child_key, child_node in node.children.items():
+            print("error")
+            self.print_trie(child_node, indent + "    ")
