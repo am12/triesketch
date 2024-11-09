@@ -81,7 +81,8 @@ build_kmer_index_python(genome_file, python_patricia_trie, k)
 
 
 custom_kmers = []
-patricia_trie.print_trie_to_list()  # Modify your print_trie method to append keys
+#patricia_trie.print_trie_to_list()  # Modify your print_trie method to append keys
+custom_kmers = patricia_trie.get_all_kmers()
 
 # Print patricia-trie keys as a flat list
 patricia_kmers = list(python_patricia_trie.keys())

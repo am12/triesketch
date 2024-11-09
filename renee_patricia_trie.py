@@ -110,3 +110,18 @@ class PatriciaTrie():
 
         for child_key, child_node in node.children.items():
             self.print_trie_to_list(child_node, key_list, indent + "    ")
+    
+    def get_all_kmers(self, node=None, prefix=""):
+        if node is None:
+            node = self.root
+        kmers = []
+
+        # If the current node marks the end of a word, add the prefix to the list
+        if node.is_end_of_word:
+            kmers.append(prefix)
+
+        # Recurse through each child node, accumulating the prefix for each branch
+        for child_key, child_node in node.children.items():
+            kmers.extend(self.get_all_kmers(child_node, prefix + child_key))
+        
+        return kmers
