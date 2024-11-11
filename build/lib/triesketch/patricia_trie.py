@@ -16,7 +16,7 @@ class PatriciaTrie:
         if keys:
             for key in keys:
                 self.insert(key)
-            
+
     def __name__(self):
         return "PatriciaTrie"
 
@@ -26,7 +26,7 @@ class PatriciaTrie:
             found = False
             for key in list(current.children.keys()):
                 common_prefix_length = self._common_prefix_length(word, key)
-                
+
                 if common_prefix_length > 0:
                     # Case 1: If the common prefix is shorter than the existing key, split the node
                     if common_prefix_length < len(key):
@@ -93,3 +93,89 @@ class PatriciaTrie:
         while i < len(str1) and i < len(str2) and str1[i] == str2[i]:
             i += 1
         return i
+
+    def prefix_search(self, prefix):
+        """
+        Finds all words in the trie that match a given prefix.
+
+        Parameters:
+        - prefix (str): The prefix to search for.
+
+        Returns:
+        - list of str: All words in the trie that start with the given prefix.
+        """
+        current = self.root
+        words = []
+
+        # Traverse the trie to the end of the prefix
+        while prefix:
+            found = False
+            for key, node in current.children.items():
+                if prefix.startswith(key):
+                    prefix = prefix[len(key):]
+                    current = node
+                    found = True
+                    break
+                elif key.startswith(prefix):
+                    # Partial prefix match with the current key
+                    current = node
+                    prefix = ""
+                    found = True
+                    break
+            if not found:
+                return []  # No words found with the given prefix
+
+        # Use a helper function to collect all words starting from the current node
+        self._collect_all_words(current, words, prefix=current.key)
+        return words
+
+    def _collect_all_words(self, node, words, prefix=""):
+        """
+        Helper method to collect all words starting from a given node.
+        """
+        if node.is_end_of_word:
+            words.append(prefix)
+        for key, child in node.children.items():
+            self._collect_all_words(child, words, prefix + key)
+
+    def count_prefix_matches(self, prefix):
+        """
+        Counts the number of words in the trie that match a given prefix.
+
+        Parameters:
+        - prefix (str): The prefix to count matches for.
+
+        Returns:
+        - int: The count of words in the trie that start with the given prefix.
+        """
+        current = self.root
+
+        # Traverse the trie to the end of the prefix
+        while prefix:
+            found = False
+            for key, node in current.children.items():
+                if prefix.startswith(key):
+                    prefix = prefix[len(key):]
+                    current = node
+                    found = True
+                    break
+                elif key.startswith(prefix):
+                    # Partial prefix match with the current key
+                    current = node
+                    prefix = ""
+                    found = True
+                    break
+            if not found:
+                return 0  # No words found with the given prefix
+
+        # Use a helper function to count all words starting from the current node
+        return self._count_words_from_node(current)
+
+    def _count_words_from_node(self, node):
+        """
+        Helper method to count all words starting from a given node.
+        """
+        count = 1 if node.is_end_of_word else 0
+        for child in node.children.values():
+            count += self._count_words_from_node(child)
+        return count
