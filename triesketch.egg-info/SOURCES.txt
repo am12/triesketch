@@ -5,6 +5,7 @@ triesketch/dictionary.py
 triesketch/marisa_trie.py
 triesketch/naive_trie.py
 triesketch/patricia_trie.py
+triesketch/pytricia_trie.py
 triesketch/trie.py
 triesketch/utils.py
 triesketch.egg-info/PKG-INFO
