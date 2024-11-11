@@ -1,4 +1,5 @@
 from pympler import asizeof
+import os
 import time
 import itertools
 import pandas as pd
@@ -11,7 +12,7 @@ def main():
 
     ### VARIABLES ############
     k = 21  # K-mer length
-    genome_files = [f'./data/chr22_parts/{i}.fna' for i in range(1,11)]
+    genome_files = [f'./data/chr22_parts/{i}.fa' for i in range(1,11)]
     _, trie_types = get_tries()
     
     results = [] 
@@ -72,9 +73,12 @@ def main():
         print(f"Total size of trie: {trie_size} bytes")
     
     # Save results to a DataFrame and export to CSV
+    results_path = './tests/build_index/initialize_results.csv'
     df_results = pd.DataFrame(results)
-    df_results.to_csv('./build_index/initialize_results.csv', index=False)
-    print("\nResults saved to 'initialize_results.csv'.")
+    os.makedirs(os.path.dirname(results_path), exist_ok=True)
+    df_results.to_csv(results_path, index=False)
+
+    print(f"\nResults saved to {results_path}.")
 
 if __name__ == "__main__":
     main()
