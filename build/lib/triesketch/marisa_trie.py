@@ -83,15 +83,15 @@ class MarisaTrie:
 
     def prefix_search(self, prefix):
         """
-        Finds all words in the trie that match a given prefix.
+        Checks if any word in the trie matches the given prefix.
 
         Parameters:
         - prefix (str): The prefix to search for.
 
         Returns:
-        - list of str: All words in the trie that start with the given prefix.
+        - bool: True if any word in the trie starts with the given prefix, False otherwise.
         """
-        return self.trie.keys(prefix)
+        return any(self.trie.keys(prefix))
 
     def count_prefix_matches(self, prefix):
         """

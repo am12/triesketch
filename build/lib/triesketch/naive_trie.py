@@ -113,16 +113,15 @@ class NaiveTrie:
 
     def prefix_search(self, prefix):
         """
-        Finds all words in the trie that match a given prefix.
+        Checks if any word in the trie starts with the given prefix.
         
         Parameters:
         - prefix (str): The prefix to search for.
         
         Returns:
-        - list of str: All words in the trie that start with the given prefix.
+        - bool: True if any word in the trie starts with the given prefix, False otherwise.
         """
         current = self.root
-        matched_words = []
         
         # Traverse the trie to the end of the prefix
         while prefix:
@@ -134,30 +133,12 @@ class NaiveTrie:
                     found = True
                     break
                 elif child.key.startswith(prefix):
-                    prefix = ""
-                    current = child
-                    found = True
-                    break
+                    # The prefix matches part of the child's key
+                    return True  # Prefix exists in the trie
             if not found:
-                return []  # No words with the given prefix
+                return False  # No words with the given prefix
 
-        # Collect all words starting from the current node
-        self._collect_words_from_node(current, matched_words, prefix=current.key)
-        return matched_words
-
-    def _collect_words_from_node(self, node, words, prefix=""):
-        """
-        Helper method to collect all words starting from a given node.
-        
-        Parameters:
-        - node (TrieNode): The current TrieNode to collect words from.
-        - words (list of str): List to store the collected words.
-        - prefix (str): The current prefix up to this node.
-        """
-        if node.is_end_of_word:
-            words.append(prefix)
-        for child in node.children:
-            self._collect_words_from_node(child, words, prefix + child.key)
+        return True
 
     def count_prefix_matches(self, prefix):
         """
