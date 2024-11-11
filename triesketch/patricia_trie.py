@@ -1,13 +1,22 @@
-class PatriciaTrieNode():
+class PatriciaTrieNode:
     def __init__(self, key=""):
-        self.key = key
-        self.children = {}
-        self.is_end_of_word = False
+        self.key = key  # The substring stored at this node
+        self.children = {}  # Dictionary mapping substrings to child nodes
+        self.is_end_of_word = False  # True if the node represents the end of a word
 
-class PatriciaTrie():
-    def __init__(self):
+class PatriciaTrie:
+    def __init__(self, keys=None):
+        """
+        Initializes the Patricia trie. If a list of keys is provided, inserts them into the trie.
+
+        Parameters:
+        - keys (list of str, optional): The list of words to initialize the trie with.
+        """
         self.root = PatriciaTrieNode()
-        
+        if keys:
+            for key in keys:
+                self.insert(key)
+            
     def __name__(self):
         return "PatriciaTrie"
 
@@ -22,29 +31,28 @@ class PatriciaTrie():
                     # Case 1: If the common prefix is shorter than the existing key, split the node
                     if common_prefix_length < len(key):
                         existing_node = current.children.pop(key)
-                        new_node = PatriciaTrieNode(key[:common_prefix_length])
+                        # Create a new node with the common prefix
+                        new_node = PatriciaTrieNode(key=word[:common_prefix_length])
                         current.children[new_node.key] = new_node
-                        new_node.children[key[common_prefix_length:]] = existing_node
+                        # Adjust the existing node
                         existing_node.key = key[common_prefix_length:]
-
-                    # Case 2: Update current node to handle the new word
-                    current = current.children[key[:common_prefix_length]]
+                        new_node.children[existing_node.key] = existing_node
+                        # Update current node
+                        current = new_node
+                    else:
+                        # Move to the child node
+                        current = current.children[key]
                     word = word[common_prefix_length:]
-
-                    # Case 3: If the word length matches, mark it as an end of word
                     if not word:
                         current.is_end_of_word = True
-                    else:
-                        # Create a new node for the remaining part of the word
-                        if word not in current.children:
-                            current.children[word] = PatriciaTrieNode(word)
-                            current.children[word].is_end_of_word = True
-                    return
-                
-            # Case 4: If no common prefix, add the word as a new child
-            current.children[word] = PatriciaTrieNode(word)
-            current.children[word].is_end_of_word = True
-            return
+                    found = True
+                    break
+            if not found:
+                # No common prefix; add the word as a new child
+                new_node = PatriciaTrieNode(key=word)
+                new_node.is_end_of_word = True
+                current.children[word] = new_node
+                return
 
     def search(self, word):
         current = self.root
@@ -52,8 +60,6 @@ class PatriciaTrie():
             found = False
             for key, node in current.children.items():
                 if word.startswith(key):
-                    if len(key) == len(word):
-                        return node.is_end_of_word
                     word = word[len(key):]
                     current = node
                     found = True
@@ -66,17 +72,19 @@ class PatriciaTrie():
         def _delete(node, word):
             if not word:
                 if not node.is_end_of_word:
-                    return False
+                    return False  # Word not found
                 node.is_end_of_word = False
-                return len(node.children) == 0
+                return len(node.children) == 0  # If leaf node, indicate it can be removed
 
             for key, child in list(node.children.items()):
                 if word.startswith(key):
-                    if _delete(child, word[len(key):]):
+                    can_delete_child = _delete(child, word[len(key):])
+                    if can_delete_child:
                         del node.children[key]
+                        # If the current node is not an end of a word and has no children, it can be deleted
                         return not node.is_end_of_word and len(node.children) == 0
                     return False
-            return False
+            return False  # Word not found
 
         _delete(self.root, word)
 

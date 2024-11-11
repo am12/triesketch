@@ -1,9 +1,21 @@
 import pytrie
 
+# draws from idea of radix tries
 class Trie:
-    def __init__(self):
+    def __init__(self, keys=None):
+        """
+        Initializes the trie. If a list of keys is provided, inserts them into the trie.
+        
+        Parameters:
+        - keys (list of str, optional): The list of words to initialize the trie with.
+        """
         # Using pytrie.StringTrie to store words
-        self.trie = pytrie.StringTrie()
+        if keys:
+            # Initialize the trie with the given keys and default value True
+            key_values = {key: True for key in keys}
+            self.trie = pytrie.StringTrie(key_values)
+        else:
+            self.trie = pytrie.StringTrie()
 
     def __name__(self):
         return "Trie"
@@ -14,7 +26,7 @@ class Trie:
         
         Parameters:
         - word (str): The word to insert.
-        - value (any): The value associated with the word. Defaults to True.
+        - value (any, optional): The value associated with the word. Defaults to True.
         """
         self.trie[word] = value
 
@@ -26,9 +38,10 @@ class Trie:
         - word (str): The word to search for.
 
         Returns:
-        - any: The value associated with the word if it exists, raises KeyError if not found.
+        - any: The value associated with the word if it exists.
+        - None: If the word does not exist in the trie.
         """
-        return self.trie[word]  # Will raise KeyError if the word does not exist
+        return self.trie.get(word, None)
 
     def delete(self, word):
         """
