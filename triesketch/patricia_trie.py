@@ -96,17 +96,15 @@ class PatriciaTrie:
 
     def prefix_search(self, prefix):
         """
-        Finds all words in the trie that match a given prefix.
+        Checks if any word in the trie matches the given prefix.
 
         Parameters:
         - prefix (str): The prefix to search for.
 
         Returns:
-        - list of str: All words in the trie that start with the given prefix.
+        - bool: True if any word in the trie starts with the given prefix, False otherwise.
         """
         current = self.root
-        words = []
-        accumulated_prefix = ""
 
         # Traverse the trie to the end of the prefix
         while prefix:
@@ -115,34 +113,18 @@ class PatriciaTrie:
                 common_prefix_length = self._common_prefix_length(prefix, key)
                 if common_prefix_length == len(key):
                     # The key fully matches a prefix of the remaining prefix
-                    accumulated_prefix += key
                     prefix = prefix[common_prefix_length:]
                     current = node
                     found = True
                     break
                 elif common_prefix_length == len(prefix):
                     # The prefix fully matches a prefix of the key
-                    accumulated_prefix += prefix
-                    current = node
-                    prefix = ""
-                    found = True
-                    break
+                    return True  # Prefix exists in the trie
             if not found:
-                return []  # No words found with the given prefix
+                return False  # No words found with the given prefix
 
-        # Collect all words starting from the current node
-        self._collect_all_words(current, words, prefix=accumulated_prefix)
-        return words
+        return True
 
-    def _collect_all_words(self, node, words, prefix=""):
-        """
-        Helper method to collect all words starting from a given node.
-        """
-        if node.is_end_of_word:
-            words.append(prefix)
-        for key, child in node.children.items():
-            self._collect_all_words(child, words, prefix + key)
-            
     def count_prefix_matches(self, prefix):
         """
         Counts the number of words in the trie that match a given prefix.
@@ -181,6 +163,9 @@ class PatriciaTrie:
     def _count_words_from_node(self, node):
         """
         Helper method to count all words starting from a given node.
+        
+        Returns:
+        - int: The count of words from this node down the tree.
         """
         count = 1 if node.is_end_of_word else 0
         for child in node.children.values():

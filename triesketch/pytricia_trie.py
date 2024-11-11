@@ -14,7 +14,7 @@ class PytriciaTrie:
                 self.trie[key] = True  # Store True as the value since we're only tracking existence
 
     def __name__(self):
-        return "PatriciaTrie"
+        return "PytriciaTrie"
 
     def insert(self, key):
         """
@@ -52,3 +52,27 @@ class PytriciaTrie:
         - bool: True if the key exists in the trie, False otherwise.
         """
         return key in self.trie
+
+    def prefix_search(self, prefix):
+        """
+        Checks if any key in the trie starts with the given prefix.
+        
+        Parameters:
+        - prefix (str): The prefix to search for.
+        
+        Returns:
+        - bool: True if any key in the trie starts with the given prefix, False otherwise.
+        """
+        return bool(self.trie.keys(prefix))
+
+    def count_prefix_matches(self, prefix):
+        """
+        Counts the number of keys in the trie that match a given prefix.
+        
+        Parameters:
+        - prefix (str): The prefix to count matches for.
+        
+        Returns:
+        - int: The count of keys in the trie that start with the given prefix.
+        """
+        return len(list(self.trie.keys(prefix)))

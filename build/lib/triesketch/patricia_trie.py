@@ -106,18 +106,23 @@ class PatriciaTrie:
         """
         current = self.root
         words = []
+        accumulated_prefix = ""
 
         # Traverse the trie to the end of the prefix
         while prefix:
             found = False
             for key, node in current.children.items():
-                if prefix.startswith(key):
-                    prefix = prefix[len(key):]
+                common_prefix_length = self._common_prefix_length(prefix, key)
+                if common_prefix_length == len(key):
+                    # The key fully matches a prefix of the remaining prefix
+                    accumulated_prefix += key
+                    prefix = prefix[common_prefix_length:]
                     current = node
                     found = True
                     break
-                elif key.startswith(prefix):
-                    # Partial prefix match with the current key
+                elif common_prefix_length == len(prefix):
+                    # The prefix fully matches a prefix of the key
+                    accumulated_prefix += prefix
                     current = node
                     prefix = ""
                     found = True
@@ -125,8 +130,8 @@ class PatriciaTrie:
             if not found:
                 return []  # No words found with the given prefix
 
-        # Use a helper function to collect all words starting from the current node
-        self._collect_all_words(current, words, prefix=current.key)
+        # Collect all words starting from the current node
+        self._collect_all_words(current, words, prefix=accumulated_prefix)
         return words
 
     def _collect_all_words(self, node, words, prefix=""):
@@ -137,7 +142,7 @@ class PatriciaTrie:
             words.append(prefix)
         for key, child in node.children.items():
             self._collect_all_words(child, words, prefix + key)
-
+            
     def count_prefix_matches(self, prefix):
         """
         Counts the number of words in the trie that match a given prefix.
@@ -154,21 +159,23 @@ class PatriciaTrie:
         while prefix:
             found = False
             for key, node in current.children.items():
-                if prefix.startswith(key):
-                    prefix = prefix[len(key):]
+                common_prefix_length = self._common_prefix_length(prefix, key)
+                if common_prefix_length == len(key):
+                    # The key fully matches a prefix of the remaining prefix
+                    prefix = prefix[common_prefix_length:]
                     current = node
                     found = True
                     break
-                elif key.startswith(prefix):
-                    # Partial prefix match with the current key
-                    current = node
+                elif common_prefix_length == len(prefix):
+                    # The prefix fully matches a prefix of the key
                     prefix = ""
+                    current = node
                     found = True
                     break
             if not found:
                 return 0  # No words found with the given prefix
 
-        # Use a helper function to count all words starting from the current node
+        # Count all words starting from the current node
         return self._count_words_from_node(current)
 
     def _count_words_from_node(self, node):

@@ -80,22 +80,27 @@ class MarisaTrie:
         Builds the marisa_trie.Trie from the current set of keys.
         """
         self.trie = marisa_trie.Trie(self._keys)
-        
 
-# # Initialize the trie
-# trie = MarisaTrie(keys=["apple", "banana", "cherry"])
+    def prefix_search(self, prefix):
+        """
+        Finds all words in the trie that match a given prefix.
 
-# # Insert multiple words
-# trie.insert_many(["date", "elderberry", "fig"])
+        Parameters:
+        - prefix (str): The prefix to search for.
 
-# # Search for words
-# print(trie.search("date"))       # Output: True
-# print(trie.search("elderberry")) # Output: True
-# print(trie.search("fig"))        # Output: True
+        Returns:
+        - list of str: All words in the trie that start with the given prefix.
+        """
+        return self.trie.keys(prefix)
 
-# # Delete multiple words
-# trie.delete_many(["banana", "cherry"])
+    def count_prefix_matches(self, prefix):
+        """
+        Counts the number of words in the trie that match a given prefix.
 
-# # Search for deleted words
-# print(trie.search("banana"))     # Output: False
-# print(trie.search("cherry"))     # Output: False
+        Parameters:
+        - prefix (str): The prefix to count matches for.
+
+        Returns:
+        - int: The count of words in the trie that start with the given prefix.
+        """
+        return len(self.trie.keys(prefix))

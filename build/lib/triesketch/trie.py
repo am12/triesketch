@@ -57,18 +57,3 @@ class Trie:
             del self.trie[word]
             return True
         return False
-
-# # Example usage
-# trie = Trie()
-
-# # Insert words
-# trie.insert("apple")
-# trie.insert("app")
-
-# # Search for words
-# print(trie.search("apple"))  # Output: True
-# print(trie.search("app"))    # Output: True
-
-# # Delete a word
-# print(trie.delete("app"))    # Output: True
-# print(trie.delete("app"))    # Output: False (already deleted)

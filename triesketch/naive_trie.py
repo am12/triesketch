@@ -110,3 +110,79 @@ class NaiveTrie:
             if str1[i] != str2[i]:
                 return i
         return min_length
+
+    def prefix_search(self, prefix):
+        """
+        Checks if any word in the trie starts with the given prefix.
+        
+        Parameters:
+        - prefix (str): The prefix to search for.
+        
+        Returns:
+        - bool: True if any word in the trie starts with the given prefix, False otherwise.
+        """
+        current = self.root
+        
+        # Traverse the trie to the end of the prefix
+        while prefix:
+            found = False
+            for child in current.children:
+                if prefix.startswith(child.key):
+                    prefix = prefix[len(child.key):]
+                    current = child
+                    found = True
+                    break
+                elif child.key.startswith(prefix):
+                    # The prefix matches part of the child's key
+                    return True  # Prefix exists in the trie
+            if not found:
+                return False  # No words with the given prefix
+
+        return True
+
+    def count_prefix_matches(self, prefix):
+        """
+        Counts the number of words in the trie that match a given prefix.
+        
+        Parameters:
+        - prefix (str): The prefix to count matches for.
+        
+        Returns:
+        - int: The count of words in the trie that start with the given prefix.
+        """
+        current = self.root
+        
+        # Traverse the trie to the end of the prefix
+        while prefix:
+            found = False
+            for child in current.children:
+                if prefix.startswith(child.key):
+                    prefix = prefix[len(child.key):]
+                    current = child
+                    found = True
+                    break
+                elif child.key.startswith(prefix):
+                    prefix = ""
+                    current = child
+                    found = True
+                    break
+            if not found:
+                return 0  # No words with the given prefix
+
+        # Count all words starting from the current node
+        return self._count_words_from_node(current)
+
+    def _count_words_from_node(self, node):
+        """
+        Helper method to count all words starting from a given node.
+        
+        Parameters:
+        - node (TrieNode): The current TrieNode to count words from.
+        
+        Returns:
+        - int: The count of words from this node down the tree.
+        """
+        count = 1 if node.is_end_of_word else 0
+        for child in node.children:
+            count += self._count_words_from_node(child)
+        return count
