@@ -67,5 +67,13 @@ def find_distance_by_trie_improved(kmer_a, kmer_b):
     total_kmers_a = kmer_a.count_prefix_matches("")
     total_kmers_b = kmer_b.count_prefix_matches("")
     jacard_denom = (total_kmers_a + total_kmers_b) - jacard_num
-
+    
     return jacard_num/jacard_denom
+
+if __name__ == '__main__': 
+    trie_a = PatriciaTrie(['ATCG', 'TCGA', 'GCTA'])
+    trie_b = PatriciaTrie(['TCGA', 'GCTA', 'ATCGT'])
+    print(trie_a)
+    k = 4 
+    distance = mash_dist(trie_a, trie_b, k)
+    print(f"MASH Distance: {distance}")
