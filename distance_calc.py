@@ -8,7 +8,7 @@ def mash_dist(kmer_a, kmer_b, k, jaccard_sim_a = True):
         j = find_distance_by_trie(kmer_a, kmer_b)
     else:
         j = find_distance_by_trie_improved(kmer_a, kmer_b)
-    return (-1/k) * np.log(2 * j / (1 + j))
+    return j, (-1/k) * np.log(2 * j / (1 + j))
 
 # kmer_a and kmer_b are two tries
 def find_distance_by_trie(kmer_a: PatriciaTrie, kmer_b: PatriciaTrie):
@@ -67,5 +67,5 @@ def find_distance_by_trie_improved(kmer_a, kmer_b):
     total_kmers_a = kmer_a.count_prefix_matches("")
     total_kmers_b = kmer_b.count_prefix_matches("")
     jacard_denom = (total_kmers_a + total_kmers_b) - jacard_num
-    
+
     return jacard_num/jacard_denom
