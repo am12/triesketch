@@ -100,5 +100,5 @@ distance_matrix2 = np.array([
     [10, 12, 9, 0]
 ])
 
-tree= neighbor_joining(distance_matrix)
+tree = neighbor_joining(distance_matrix)
 print_tree(tree)
