@@ -1,4 +1,4 @@
-from distance_calc import mash_dist
+from triesketch.distance_calc import mash_dist
 from triesketch.patricia_trie import PatriciaTrie
 
 #test algorithm a
