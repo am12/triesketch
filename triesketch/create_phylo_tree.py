@@ -1,9 +1,9 @@
 import numpy as np
 
-def neighbor_joining(distance_matrix):
+def neighbor_joining(distance_matrix, name_list):
     final_matrix = np.copy(distance_matrix)
     n = len(final_matrix)
-    labels = [chr(65 + i) for i in range(n)]
+    labels = name_list
     nodes = labels.copy()
     tree = {}
     next_node = n  #when there is a new node that is created to connect the original nodes use next number
