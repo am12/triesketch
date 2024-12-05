@@ -19,7 +19,7 @@ def main():
             continue
         kmers = generate_kmers(sequences, kmer_length)
         trie = PatriciaTrie(keys=kmers)
-        final_dict[index] = trie
+        final_dict.append(trie)
     
     k_values = [3, 5] #can change to the values we want to test or just change for loop to test range of k values
     
