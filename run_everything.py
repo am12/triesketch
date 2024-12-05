@@ -6,7 +6,7 @@ from triesketch import create_phylo_tree
 def main():
     names = ["MZ169912", "MZ219592", "MW913395", "LC623948", "MW981442", "MZ202314", "MW789246", "MZ277392"]
     #read in files
-    genome_files = [f'./data/chr22_parts/{i}.fa' for i in range(1,11)] #change this for actual data
+    genome_files = [f'./datasets/{names[i]}.txt' for i in range(0,8)] #change this for actual data datasets/LC623948.txt
     final_dict = []
     
     kmer_length = 21
