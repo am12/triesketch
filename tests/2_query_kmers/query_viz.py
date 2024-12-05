@@ -23,7 +23,7 @@ def load_and_process_data(csv_file):
 
     return df_avg
 
-def plot_prefix_search_time(df):
+def plot_prefix_search_time(dir, df):
     """
     Plot the average prefix search time against prefix length for each trie type.
     
@@ -38,10 +38,10 @@ def plot_prefix_search_time(df):
     plt.legend(title="Trie Type")
     plt.xticks(range(1, 22))  # Set x-ticks from 1 to 21
     plt.tight_layout()
-    plt.savefig("average_prefix_search_time_line.png")
+    plt.savefig(f"{dir}/average_prefix_search_time_line.png")
     plt.show()
 
-def plot_prefix_count_time(df):
+def plot_prefix_count_time(dir, df):
     """
     Plot the average prefix count time against prefix length for each trie type.
     
@@ -56,19 +56,20 @@ def plot_prefix_count_time(df):
     plt.legend(title="Trie Type")
     plt.xticks(range(1, 22))  # Set x-ticks from 1 to 21
     plt.tight_layout()
-    plt.savefig("average_prefix_count_time_line.png")
+    plt.savefig(f"{dir}/average_prefix_count_time_line.png")
     plt.show()
 
 def main():
     # Load and process the data
-    csv_file = './tests/query/partition_10/query_results_avg.csv'
+    base_dir = './tests/2_query_kmers/partition_100'
+    csv_file = f'{base_dir}/query_results_avg.csv'
     df_avg = load_and_process_data(csv_file)
 
     # Plot average prefix search time against prefix length
-    plot_prefix_search_time(df_avg)
+    plot_prefix_search_time(base_dir, df_avg)
 
     # Plot average prefix count time against prefix length
-    plot_prefix_count_time(df_avg)
+    plot_prefix_count_time(base_dir, df_avg)
 
 if __name__ == "__main__":
     main()

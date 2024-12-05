@@ -13,10 +13,10 @@ def main():
 
     ### VARIABLES ############
     k = 21  # K-mer length
-    genome_file = './data/chm13_chr22.fa'  # Using only the 1% genome sample
-    trie_types = ['NaiveTrie', 'PatriciaTrie', 'PytriciaTrie', 'MarisaTrie'] # Using only the NaiveTrie, PatriciaTrie, PytriciaTrie, and MarisaTrie
-    num_test_prefixes = 30  # Number of random prefixes to test per prefix length
-    max_prefix_length = 21  # Maximum length of prefixes to test
+    genome_file = './data/chm13_chr22.fa' # we have been running on various partitions of the CHM13 chr22 
+    trie_types = ['NaiveTrie', 'PatriciaTrie', 'PytriciaTrie', 'MarisaTrie'] # using only the NaiveTrie, PatriciaTrie, PytriciaTrie, and MarisaTrie
+    num_test_prefixes = 30  # number of random prefixes to test per prefix length
+    max_prefix_length = 21  # max length of prefixes to test
     
     results = [] 
     ###########################
