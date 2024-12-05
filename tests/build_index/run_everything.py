@@ -31,8 +31,8 @@ def main():
             for j in range(i + 1, len(final_dict)):
                 distance_matrix_1[i][j] = distance_matrix_1[j][i] = distance_calc.find_distance_by_trie(final_dict[i], final_dict[j], k)
                 distance_matrix_2[i][j] = distance_matrix_2[j][i] = distance_calc.find_distance_by_trie(final_dict[i], final_dict[j], k)
-        tree_using_approach1 = create_phylo_tree.neighbor_joining(distance_matrix_1)
-        tree_using_approach2 = create_phylo_tree.neighbor_joining(distance_matrix_2)
+        tree_using_approach1 = create_phylo_tree.neighbor_joining(distance_matrix_1, names)
+        tree_using_approach2 = create_phylo_tree.neighbor_joining(distance_matrix_2, names)
         
         create_phylo_tree.print_tree(tree_using_approach1)
         create_phylo_tree.print_tree(tree_using_approach2)
