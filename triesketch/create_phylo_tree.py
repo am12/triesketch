@@ -85,20 +85,20 @@ def print_tree(tree, node=None, indent="", last=True):
         if i < child_count - 1:
             print(f"{new_indent}│")
 
-# Ex
-distance_matrix = np.array([
-    [0, 2, 2, 2],
-    [2, 0, 3, 2],
-    [2, 3, 0, 2],
-    [2, 2, 2, 0]
-])
+# # Ex
+# distance_matrix = np.array([
+#     [0, 2, 2, 2],
+#     [2, 0, 3, 2],
+#     [2, 3, 0, 2],
+#     [2, 2, 2, 0]
+# ])
 
-distance_matrix2 = np.array([
-    [0, 4, 5, 10],
-    [4, 0, 7, 12],
-    [5, 7, 0, 9],
-    [10, 12, 9, 0]
-])
+# distance_matrix2 = np.array([
+#     [0, 4, 5, 10],
+#     [4, 0, 7, 12],
+#     [5, 7, 0, 9],
+#     [10, 12, 9, 0]
+# ])
 
-tree = neighbor_joining(distance_matrix)
-print_tree(tree)
+# tree = neighbor_joining(distance_matrix)
+# print_tree(tree)

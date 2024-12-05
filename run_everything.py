@@ -36,3 +36,6 @@ def main():
         
         create_phylo_tree.print_tree(tree_using_approach1)
         create_phylo_tree.print_tree(tree_using_approach2)
+
+if __name__ == "__main__":
+    main()
