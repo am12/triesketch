@@ -5,8 +5,9 @@ from triesketch import create_phylo_tree
 
 def main():
     names = ["MZ169912", "MZ219592", "MW913395", "LC623948", "MW981442", "MZ202314", "MW789246", "MZ277392"]
+    #names = ["chicken", "Drosophila", "frog-FOR2", "human", "mouse", "rat"]
     #read in files
-    genome_files = [f'./data/covid/{names[i]}.fasta' for i in range(0,8)] #change this for actual data datasets/LC623948.txt
+    genome_files = [f'./data/covid/{names[i]}.fasta' for i in range(0,len(names))] #change this for actual data datasets/LC623948.txt
     final_dict = []
     
     kmer_length = 21
@@ -29,8 +30,8 @@ def main():
     for k in k_values:
         for i in range(len(final_dict)):
             for j in range(i + 1, len(final_dict)):
-                distance_matrix_1[i][j] = distance_matrix_1[j][i] = distance_calc.find_distance_by_trie(final_dict[i], final_dict[j], k)
-                distance_matrix_2[i][j] = distance_matrix_2[j][i] = distance_calc.find_distance_by_trie_improved(final_dict[i], final_dict[j])
+                distance_matrix_1[i][j] = distance_matrix_1[j][i] = distance_calc.mash_dist(final_dict[i], final_dict[j], k, True)
+                distance_matrix_2[i][j] = distance_matrix_2[j][i] = distance_calc.mash_dist(final_dict[i], final_dict[j], k, False)
         tree_using_approach1 = create_phylo_tree.neighbor_joining(distance_matrix_1, names)
         tree_using_approach2 = create_phylo_tree.neighbor_joining(distance_matrix_2, names)
         
