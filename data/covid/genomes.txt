@@ -1,0 +1,8 @@
+/home/smao10/zzz/triesketch/data/covid/LC623948.fasta
+/home/smao10/zzz/triesketch/data/covid/MW789246.fasta
+/home/smao10/zzz/triesketch/data/covid/MW913395.fasta
+/home/smao10/zzz/triesketch/data/covid/MW981442.fasta
+/home/smao10/zzz/triesketch/data/covid/MZ169912.fasta
+/home/smao10/zzz/triesketch/data/covid/MZ202314.fasta
+/home/smao10/zzz/triesketch/data/covid/MZ219592.fasta
+/home/smao10/zzz/triesketch/data/covid/MZ277392.fasta
