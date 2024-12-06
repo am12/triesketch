@@ -215,10 +215,10 @@ def find_distance_by_trie(kmer_a: PatriciaTrie, kmer_b: PatriciaTrie, k):
     prefixes_b = set(find_prefixes_of_length(kmer_b, k))
     
     # Compute the intersection (shared prefixes) and union (unique prefixes)
-    jacard_num = len(prefixes_a & prefixes_b)
-    jacard_denom = len(prefixes_a | prefixes_b)
+    jaccard_num = len(prefixes_a & prefixes_b)
+    jaccard_denom = len(prefixes_a | prefixes_b)
     
-    return jacard_num / jacard_denom
+    return jaccard_num / jaccard_denom
 
 def find_distance_by_trie_improved(kmer_a, kmer_b):
     def count_shared_kmers_with_prefix(node1, trie2, prefix):
@@ -242,17 +242,17 @@ def find_distance_by_trie_improved(kmer_a, kmer_b):
         return min_shared_kmer_count
 
     # Compute shared kmers
-    jacard_num = count_shared_kmers_with_prefix(kmer_a.root, kmer_b, "")
+    jaccard_num = count_shared_kmers_with_prefix(kmer_a.root, kmer_b, "")
 
     # Compute total kmers
     total_kmers_a = kmer_a.count_prefix_matches("")
     total_kmers_b = kmer_b.count_prefix_matches("")
 
     # Compute Jaccard denominator
-    jacard_denom = (total_kmers_a + total_kmers_b) - jacard_num
-    print(jacard_denom)
+    jaccard_denom = (total_kmers_a + total_kmers_b) - jaccard_num
+    print(jaccard_denom)
 
-    return jacard_num/jacard_denom
+    return jaccard_num/jaccard_denom
 
 
 def calculate_jaccard_similarity_by_prefix_length(trie_a, trie_b, k):
