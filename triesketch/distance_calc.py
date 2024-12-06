@@ -29,7 +29,7 @@ def mash_dist(kmer_a, kmer_b, k, jaccard_sim_a = True):
         j = find_distance_by_trie(kmer_a, kmer_b, k)
         return (-1/k) * np.log(2 * j / (1 + j))
     else:
-        j = calculate_jaccard_similarity_by_prefix_length(kmer_a, kmer_b, k)
+        j = find_distance_by_trie_improved(kmer_a, kmer_b, k)
         trie_k = find_depth_of_patricia_trie_simple(kmer_a)
         return (-1/trie_k) * np.log(2 * j / (1 + j))
 
