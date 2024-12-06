@@ -11,5 +11,4 @@ triesketch/utils.py
 triesketch.egg-info/PKG-INFO
 triesketch.egg-info/SOURCES.txt
 triesketch.egg-info/dependency_links.txt
-triesketch.egg-info/entry_points.txt
 triesketch.egg-info/top_level.txt

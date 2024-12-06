@@ -1,3 +1,5 @@
 /data/*
 !/data/covid
 !/data/chr22_parts
+!/data/bacteria
+!/data/phiX174_phage.fasta

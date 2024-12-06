@@ -1,3 +1,4 @@
+####### BUILD INDICES #######
 from triesketch.dictionary import Dictionary
 from triesketch.naive_trie import NaiveTrie
 from triesketch.trie import Trie
