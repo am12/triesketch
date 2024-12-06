@@ -82,6 +82,20 @@ def main():
     phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
     create_phylo_tree.print_tree(phylo_tree_dashing)
 
+    # Define the order of animal genomes for the distance matrix
+    genome_order = ["chicken", "Drosophila", "frog-FOR2", "human", "mouse", "rat"]
+
+    # Parse the animal mash distance matrix
+    file_path = 'mash_animal_distance_matrix.txt'
+    distance_matrix = parse_mash_distance(file_path, genome_order)
+    
+    # Print the resulting distance matrix
+    print("Mash Distance Matrix:")
+    print(distance_matrix)
+
+    phylo_tree_mash = create_phylo_tree.neighbor_joining(distance_matrix, genome_order)
+    create_phylo_tree.print_tree(phylo_tree_mash)
+
 
 
 if __name__ == "__main__":
