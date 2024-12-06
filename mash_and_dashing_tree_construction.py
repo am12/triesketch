@@ -59,28 +59,28 @@ def parse_dashing_matrix(file_path):
 
 def main():
     # Define the order of genomes for the distance matrix
-    genome_order = ["LC623948", "MW789246", "MW913395", "MW981442", 
-                    "MZ169912", "MZ202314", "MZ219592", "MZ277392"]
+    # genome_order = ["LC623948", "MW789246", "MW913395", "MW981442", 
+    #                 "MZ169912", "MZ202314", "MZ219592", "MZ277392"]
     
-    # Parse the mash distance matrix
-    file_path = 'mash_distance_matrix.txt'
-    distance_matrix = parse_mash_distance(file_path, genome_order)
+    # # Parse the mash distance matrix
+    # file_path = 'mash_distance_matrix.txt'
+    # distance_matrix = parse_mash_distance(file_path, genome_order)
     
-    # Print the resulting distance matrix
-    print("Mash Distance Matrix:")
-    print(distance_matrix)
+    # # Print the resulting distance matrix
+    # print("Mash Distance Matrix:")
+    # print(distance_matrix)
 
-    phylo_tree_mash = create_phylo_tree.neighbor_joining(distance_matrix, genome_order)
-    create_phylo_tree.print_tree(phylo_tree_mash)
+    # phylo_tree_mash = create_phylo_tree.neighbor_joining(distance_matrix, genome_order)
+    # create_phylo_tree.print_tree(phylo_tree_mash)
 
-    file_path = "dashing_distance_matrix.txt"
-    names, distance_matrix_dashing = parse_dashing_matrix(file_path)
+    # file_path = "dashing_distance_matrix.txt"
+    # names, distance_matrix_dashing = parse_dashing_matrix(file_path)
 
-    print("Dashing Distance Matrix")
-    print(distance_matrix_dashing)
+    # print("Dashing Distance Matrix")
+    # print(distance_matrix_dashing)
 
-    phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
-    create_phylo_tree.print_tree(phylo_tree_dashing)
+    # phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
+    # create_phylo_tree.print_tree(phylo_tree_dashing)
 
     # Define the order of animal genomes for the distance matrix
     genome_order = ["chicken", "Drosophila", "frog-FOR2", "human", "mouse", "rat"]
@@ -96,6 +96,14 @@ def main():
     phylo_tree_mash = create_phylo_tree.neighbor_joining(distance_matrix, genome_order)
     create_phylo_tree.print_tree(phylo_tree_mash)
 
+    file_path = "dashing_animal_distance_matrix.txt"
+    names, distance_matrix_dashing = parse_dashing_matrix(file_path)
+
+    print("Dashing Distance Matrix")
+    print(distance_matrix_dashing)
+
+    phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
+    create_phylo_tree.print_tree(phylo_tree_dashing)
 
 
 if __name__ == "__main__":
