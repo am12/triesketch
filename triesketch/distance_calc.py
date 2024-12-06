@@ -1,5 +1,4 @@
 import numpy as np
-
 from triesketch.patricia_trie import PatriciaTrie
 
 def find_depth_of_patricia_trie_simple(trie):

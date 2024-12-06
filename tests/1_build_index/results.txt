@@ -1,0 +1,300 @@
+Loaded 1 sequences from './data/chr22_parts/1.fa'.
+Generated 255242 unique 21-mers from the genome sequences.
+Dictionary initialized with 255242 k-mers.
+Trie construction time: 0.0519 seconds
+Total size of trie: 28863520 bytes
+Loaded 1 sequences from './data/chr22_parts/1.fa'.
+Generated 255242 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 255242 k-mers.
+Trie construction time: 4.5643 seconds
+Total size of trie: 111971920 bytes
+Loaded 1 sequences from './data/chr22_parts/1.fa'.
+Generated 255242 unique 21-mers from the genome sequences.
+Trie initialized with 255242 k-mers.
+Trie construction time: 8.8647 seconds
+Total size of trie: 839126512 bytes
+Loaded 1 sequences from './data/chr22_parts/1.fa'.
+Generated 255242 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 255242 k-mers.
+Trie construction time: 7.8359 seconds
+Total size of trie: 140849056 bytes
+Loaded 1 sequences from './data/chr22_parts/1.fa'.
+Generated 255242 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 255242 k-mers.
+Trie construction time: 5.0289 seconds
+Total size of trie: 162371352 bytes
+Loaded 1 sequences from './data/chr22_parts/1.fa'.
+Generated 255242 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 255242 k-mers.
+Trie construction time: 0.4912 seconds
+Total size of trie: 26766544 bytes
+Loaded 1 sequences from './data/chr22_parts/2.fa'.
+Generated 299829 unique 21-mers from the genome sequences.
+Dictionary initialized with 299829 k-mers.
+Trie construction time: 0.0727 seconds
+Total size of trie: 32073784 bytes
+Loaded 1 sequences from './data/chr22_parts/2.fa'.
+Generated 299829 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 299829 k-mers.
+Trie construction time: 5.8493 seconds
+Total size of trie: 131630488 bytes
+Loaded 1 sequences from './data/chr22_parts/2.fa'.
+Generated 299829 unique 21-mers from the genome sequences.
+Trie initialized with 299829 k-mers.
+Trie construction time: 11.2223 seconds
+Total size of trie: 938681352 bytes
+Loaded 1 sequences from './data/chr22_parts/2.fa'.
+Generated 299829 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 299829 k-mers.
+Trie construction time: 9.5357 seconds
+Total size of trie: 165601312 bytes
+Loaded 1 sequences from './data/chr22_parts/2.fa'.
+Generated 299829 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 299829 k-mers.
+Trie construction time: 3.8600 seconds
+Total size of trie: 191065488 bytes
+Loaded 1 sequences from './data/chr22_parts/2.fa'.
+Generated 299829 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 299829 k-mers.
+Trie construction time: 0.5553 seconds
+Total size of trie: 38365416 bytes
+Loaded 1 sequences from './data/chr22_parts/3.fa'.
+Generated 329278 unique 21-mers from the genome sequences.
+Dictionary initialized with 329278 k-mers.
+Trie construction time: 0.0862 seconds
+Total size of trie: 34194112 bytes
+Loaded 1 sequences from './data/chr22_parts/3.fa'.
+Generated 329278 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 329278 k-mers.
+Trie construction time: 6.4620 seconds
+Total size of trie: 144366464 bytes
+Loaded 1 sequences from './data/chr22_parts/3.fa'.
+Generated 329278 unique 21-mers from the genome sequences.
+Trie initialized with 329278 k-mers.
+Trie construction time: 12.0322 seconds
+Total size of trie: 1002848392 bytes
+Loaded 1 sequences from './data/chr22_parts/3.fa'.
+Generated 329278 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 329278 k-mers.
+Trie construction time: 10.5546 seconds
+Total size of trie: 181606912 bytes
+Loaded 1 sequences from './data/chr22_parts/3.fa'.
+Generated 329278 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 329278 k-mers.
+Trie construction time: 3.9821 seconds
+Total size of trie: 209570000 bytes
+Loaded 1 sequences from './data/chr22_parts/3.fa'.
+Generated 329278 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 329278 k-mers.
+Trie construction time: 0.6192 seconds
+Total size of trie: 40485744 bytes
+Loaded 1 sequences from './data/chr22_parts/4.fa'.
+Generated 390712 unique 21-mers from the genome sequences.
+Dictionary initialized with 390712 k-mers.
+Trie construction time: 0.1062 seconds
+Total size of trie: 49103112 bytes
+Loaded 1 sequences from './data/chr22_parts/4.fa'.
+Generated 390712 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 390712 k-mers.
+Trie construction time: 8.0958 seconds
+Total size of trie: 171660904 bytes
+Loaded 1 sequences from './data/chr22_parts/4.fa'.
+Generated 390712 unique 21-mers from the genome sequences.
+Trie initialized with 390712 k-mers.
+Trie construction time: 13.8107 seconds
+Total size of trie: 1144614912 bytes
+Loaded 1 sequences from './data/chr22_parts/4.fa'.
+Generated 390712 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 390712 k-mers.
+Trie construction time: 12.2072 seconds
+Total size of trie: 216028120 bytes
+Loaded 1 sequences from './data/chr22_parts/4.fa'.
+Generated 390712 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 390712 k-mers.
+Trie construction time: 6.3672 seconds
+Total size of trie: 249350216 bytes
+Loaded 1 sequences from './data/chr22_parts/4.fa'.
+Generated 390712 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 390712 k-mers.
+Trie construction time: 0.7558 seconds
+Total size of trie: 44908992 bytes
+Loaded 1 sequences from './data/chr22_parts/5.fa'.
+Generated 508746 unique 21-mers from the genome sequences.
+Dictionary initialized with 508746 k-mers.
+Trie construction time: 0.1318 seconds
+Total size of trie: 57601560 bytes
+Loaded 1 sequences from './data/chr22_parts/5.fa'.
+Generated 508746 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 508746 k-mers.
+Trie construction time: 11.2139 seconds
+Total size of trie: 224671976 bytes
+Loaded 1 sequences from './data/chr22_parts/5.fa'.
+Generated 508746 unique 21-mers from the genome sequences.
+Trie initialized with 508746 k-mers.
+Trie construction time: 18.6128 seconds
+Total size of trie: 1416231712 bytes
+Loaded 1 sequences from './data/chr22_parts/5.fa'.
+Generated 508746 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 508746 k-mers.
+Trie construction time: 7.8377 seconds
+Total size of trie: 282979224 bytes
+Loaded 1 sequences from './data/chr22_parts/5.fa'.
+Generated 508746 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 508746 k-mers.
+Trie construction time: 11.2309 seconds
+Total size of trie: 326773664 bytes
+Loaded 1 sequences from './data/chr22_parts/5.fa'.
+Generated 508746 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 508746 k-mers.
+Trie construction time: 1.0553 seconds
+Total size of trie: 53407440 bytes
+Loaded 1 sequences from './data/chr22_parts/6.fa'.
+Generated 540173 unique 21-mers from the genome sequences.
+Dictionary initialized with 540173 k-mers.
+Trie construction time: 0.1451 seconds
+Total size of trie: 59864304 bytes
+Loaded 1 sequences from './data/chr22_parts/6.fa'.
+Generated 540173 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 540173 k-mers.
+Trie construction time: 11.9430 seconds
+Total size of trie: 238540712 bytes
+Loaded 1 sequences from './data/chr22_parts/6.fa'.
+Generated 540173 unique 21-mers from the genome sequences.
+Trie initialized with 540173 k-mers.
+Trie construction time: 19.2620 seconds
+Total size of trie: 1480802792 bytes
+Loaded 1 sequences from './data/chr22_parts/6.fa'.
+Generated 540173 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 540173 k-mers.
+Trie construction time: 17.2017 seconds
+Total size of trie: 300453408 bytes
+Loaded 1 sequences from './data/chr22_parts/6.fa'.
+Generated 540173 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 540173 k-mers.
+Trie construction time: 9.9737 seconds
+Total size of trie: 347015928 bytes
+Loaded 1 sequences from './data/chr22_parts/6.fa'.
+Generated 540173 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 540173 k-mers.
+Trie construction time: 1.1284 seconds
+Total size of trie: 72447400 bytes
+Loaded 1 sequences from './data/chr22_parts/7.fa'.
+Generated 618367 unique 21-mers from the genome sequences.
+Dictionary initialized with 618367 k-mers.
+Trie construction time: 0.1671 seconds
+Total size of trie: 65494272 bytes
+Loaded 1 sequences from './data/chr22_parts/7.fa'.
+Generated 618367 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 618367 k-mers.
+Trie construction time: 13.1309 seconds
+Total size of trie: 273425968 bytes
+Loaded 1 sequences from './data/chr22_parts/7.fa'.
+Generated 618367 unique 21-mers from the genome sequences.
+Trie initialized with 618367 k-mers.
+Trie construction time: 22.3030 seconds
+Total size of trie: 1643971392 bytes
+Loaded 1 sequences from './data/chr22_parts/7.fa'.
+Generated 618367 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 618367 k-mers.
+Trie construction time: 19.7089 seconds
+Total size of trie: 344523816 bytes
+Loaded 1 sequences from './data/chr22_parts/7.fa'.
+Generated 618367 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 618367 k-mers.
+Trie construction time: 8.3835 seconds
+Total size of trie: 398009400 bytes
+Loaded 1 sequences from './data/chr22_parts/7.fa'.
+Generated 618367 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 618367 k-mers.
+Trie construction time: 1.3059 seconds
+Total size of trie: 78077368 bytes
+Loaded 1 sequences from './data/chr22_parts/8.fa'.
+Generated 852727 unique 21-mers from the genome sequences.
+Dictionary initialized with 852727 k-mers.
+Trie construction time: 0.2426 seconds
+Total size of trie: 103339720 bytes
+Loaded 1 sequences from './data/chr22_parts/8.fa'.
+Generated 852727 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 852727 k-mers.
+Trie construction time: 20.6418 seconds
+Total size of trie: 375746896 bytes
+Loaded 1 sequences from './data/chr22_parts/8.fa'.
+Generated 852727 unique 21-mers from the genome sequences.
+Trie initialized with 852727 k-mers.
+Trie construction time: 31.8988 seconds
+Total size of trie: 2324856352 bytes
+Loaded 1 sequences from './data/chr22_parts/8.fa'.
+Generated 852727 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 852727 k-mers.
+Trie construction time: 13.6398 seconds
+Total size of trie: 473290584 bytes
+Loaded 1 sequences from './data/chr22_parts/8.fa'.
+Generated 852727 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 852727 k-mers.
+Trie construction time: 21.1917 seconds
+Total size of trie: 546456768 bytes
+Loaded 1 sequences from './data/chr22_parts/8.fa'.
+Generated 852727 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 852727 k-mers.
+Trie construction time: 1.9415 seconds
+Total size of trie: 94951288 bytes
+Loaded 1 sequences from './data/chr22_parts/9.fa'.
+Generated 1286979 unique 21-mers from the genome sequences.
+Dictionary initialized with 1286979 k-mers.
+Trie construction time: 0.3665 seconds
+Total size of trie: 134605864 bytes
+Loaded 1 sequences from './data/chr22_parts/9.fa'.
+Generated 1286979 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 1286979 k-mers.
+Trie construction time: 30.9148 seconds
+Total size of trie: 565458296 bytes
+Loaded 1 sequences from './data/chr22_parts/9.fa'.
+Generated 1286979 unique 21-mers from the genome sequences.
+Trie initialized with 1286979 k-mers.
+Trie construction time: 47.8119 seconds
+Total size of trie: 3545220112 bytes
+Loaded 1 sequences from './data/chr22_parts/9.fa'.
+Generated 1286979 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 1286979 k-mers.
+Trie construction time: 44.7851 seconds
+Total size of trie: 712014384 bytes
+Loaded 1 sequences from './data/chr22_parts/9.fa'.
+Generated 1286979 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 1286979 k-mers.
+Trie construction time: 24.1081 seconds
+Total size of trie: 821726096 bytes
+Loaded 1 sequences from './data/chr22_parts/9.fa'.
+Generated 1286979 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 1286979 k-mers.
+Trie construction time: 3.0637 seconds
+Total size of trie: 159771864 bytes
+Loaded 1 sequences from './data/chr22_parts/10.fa'.
+Generated 1493120 unique 21-mers from the genome sequences.
+Dictionary initialized with 1493120 k-mers.
+Trie construction time: 0.4879 seconds
+Total size of trie: 191391048 bytes
+Loaded 1 sequences from './data/chr22_parts/10.fa'.
+Generated 1493120 unique 21-mers from the genome sequences.
+NaiveTrie initialized with 1493120 k-mers.
+Trie construction time: 37.9700 seconds
+Total size of trie: 654981488 bytes
+Loaded 1 sequences from './data/chr22_parts/10.fa'.
+Generated 1493120 unique 21-mers from the genome sequences.
+Trie initialized with 1493120 k-mers.
+Trie construction time: 50.5610 seconds
+Total size of trie: 4139414272 bytes
+Loaded 1 sequences from './data/chr22_parts/10.fa'.
+Generated 1493120 unique 21-mers from the genome sequences.
+PatriciaTrie initialized with 1493120 k-mers.
+Trie construction time: 51.4459 seconds
+Total size of trie: 824628672 bytes
+Loaded 1 sequences from './data/chr22_parts/10.fa'.
+Generated 1493120 unique 21-mers from the genome sequences.
+PytriciaTrie initialized with 1493120 k-mers.
+Trie construction time: 37.4369 seconds
+Total size of trie: 951418912 bytes
+Loaded 1 sequences from './data/chr22_parts/10.fa'.
+Generated 1493120 unique 21-mers from the genome sequences.
+MarisaTrie initialized with 1493120 k-mers.
+Trie construction time: 3.6346 seconds
+Total size of trie: 174614016 bytes
