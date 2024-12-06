@@ -30,7 +30,7 @@ def build_kmer_index(genome_file, obj, k):
 # runner
 def main():
         
-    genome_file = "./data/phiX174_phage.fasta"  # Path to your GRCh38 genome file
+    genome_file = "./data/phiX174_phage.fasta" 
     tries, names = get_tries()
     k = 21  # Set your desired k-mer length
     
