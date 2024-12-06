@@ -215,11 +215,10 @@ def find_distance_by_trie(kmer_a: PatriciaTrie, kmer_b: PatriciaTrie, k):
     prefixes_b = set(find_prefixes_of_length(kmer_b, k))
     
     # Compute the intersection (shared prefixes) and union (unique prefixes)
-    jacard_num = len(prefixes_a & prefixes_b)
-    jacard_denom = len(prefixes_a | prefixes_b)
+    jaccard_num = len(prefixes_a & prefixes_b)
+    jaccard_denom = len(prefixes_a | prefixes_b)
     
-    return jacard_num / jacard_denom
-
+    return jaccard_num / jaccard_denom
 
 def find_distance_by_trie_improved(trie_a, trie_b, k):
     """Calculates Jaccard similarity based on prefixes of length k."""
