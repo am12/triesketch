@@ -99,7 +99,7 @@ def find_distance_by_trie_improved(kmer_a, kmer_b):
 
     # Compute Jaccard denominator
     jacard_denom = (total_kmers_a + total_kmers_b) - jacard_num
-    print(jacard_denom)
+    #print(jacard_denom)
 
     return jacard_num/jacard_denom
 
