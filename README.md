@@ -1,6 +1,6 @@
 # Trie-Based Phylogenetic Distance Calculation
 Group 4a Final Project
-Explore two trie-baesd algorithms that enable comparison of genomes to reveal how closely related they are (phylogenetic distance). We benchmarked 6 trie data structures, ultimately settling on PatriciaTries for the algorithms.
+Explore two trie-based algorithms that enable comparison of genomes to reveal how closely related they are (phylogenetic distance). We benchmarked 6 trie data structures, ultimately settling on PatriciaTries for the algorithms.
 
 ## How to Run
 ### Our Trie-Based Algorithm Examples
