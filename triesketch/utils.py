@@ -180,7 +180,7 @@ def mash_dist(kmer_a, kmer_b, k, jaccard_sim_a = True):
         j = find_distance_by_trie(kmer_a, kmer_b, k)
         return (-1/k) * np.log(2 * j / (1 + j))
     else:
-        j = calculate_jaccard_similarity_by_prefix_length(kmer_a, kmer_b, k)
+        j = find_distance_by_trie_improved(kmer_a, kmer_b, k)
         trie_k = find_depth_of_patricia_trie_simple(kmer_a)
         return (-1/trie_k) * np.log(2 * j / (1 + j))
 
@@ -215,47 +215,13 @@ def find_distance_by_trie(kmer_a: PatriciaTrie, kmer_b: PatriciaTrie, k):
     prefixes_b = set(find_prefixes_of_length(kmer_b, k))
     
     # Compute the intersection (shared prefixes) and union (unique prefixes)
-    jaccard_num = len(prefixes_a & prefixes_b)
-    jaccard_denom = len(prefixes_a | prefixes_b)
+    jacard_num = len(prefixes_a & prefixes_b)
+    jacard_denom = len(prefixes_a | prefixes_b)
     
-    return jaccard_num / jaccard_denom
-
-def find_distance_by_trie_improved(kmer_a, kmer_b):
-    def count_shared_kmers_with_prefix(node1, trie2, prefix):
-        """Optimized recursive traversal."""
-        min_shared_kmer_count = 0
-
-        # Check if this node's prefix exists in the second trie
-        if trie2.prefix_search(prefix):
-            # If the node is the end of a word, count matches for this k-mer
-            if node1.is_end_of_word:
-                count_in_trie1 = kmer_a.count_prefix_matches(prefix)
-                count_in_trie2 = trie2.count_prefix_matches(prefix)
-                min_shared_kmer_count += min(count_in_trie1, count_in_trie2)
-
-            # Recursively traverse children
-            for key, child in node1.children.items():
-                min_shared_kmer_count += count_shared_kmers_with_prefix(
-                    child, trie2, prefix + key
-                )
-
-        return min_shared_kmer_count
-
-    # Compute shared kmers
-    jaccard_num = count_shared_kmers_with_prefix(kmer_a.root, kmer_b, "")
-
-    # Compute total kmers
-    total_kmers_a = kmer_a.count_prefix_matches("")
-    total_kmers_b = kmer_b.count_prefix_matches("")
-
-    # Compute Jaccard denominator
-    jaccard_denom = (total_kmers_a + total_kmers_b) - jaccard_num
-    print(jaccard_denom)
-
-    return jaccard_num/jaccard_denom
+    return jacard_num / jacard_denom
 
 
-def calculate_jaccard_similarity_by_prefix_length(trie_a, trie_b, k):
+def find_distance_by_trie_improved(trie_a, trie_b, k):
     """Calculates Jaccard similarity based on prefixes of length k."""
     
     # Step 1: Extract all prefixes of length k
