@@ -57,13 +57,44 @@ def parse_dashing_matrix(file_path):
 
     return names, matrix
 
+def parse_dashing2_matrix(file_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    names = lines[2].strip().split("\t")[1:] 
+
+    distances = []
+
+    # Process the lines containing the distance matrix
+    for line in lines[3:]: 
+        parts = line.strip().split("\t")
+        distances.append(parts[1:])
+
+    # Convert distances to a symmetric matrix
+    n = len(names)
+    matrix = np.zeros((n, n)) 
+
+    for i, row in enumerate(distances):
+        for j, value in enumerate(row):
+            if value == '-':
+                matrix[i, j] = 0.0  
+            else:
+                matrix[i, j] = float(value) 
+
+    # Symmetrize the matrix 
+    for i in range(n):
+        for j in range(i+1, n):
+            matrix[j, i] = matrix[i, j]
+
+    return names, matrix
+
 def main():
     # Define the order of genomes for the distance matrix
     # genome_order = ["LC623948", "MW789246", "MW913395", "MW981442", 
     #                 "MZ169912", "MZ202314", "MZ219592", "MZ277392"]
     
     # # Parse the mash distance matrix
-    # file_path = 'mash_distance_matrix.txt'
+    # file_path = './distance_matrices/mash_distance_matrix.txt'
     # distance_matrix = parse_mash_distance(file_path, genome_order)
     
     # # Print the resulting distance matrix
@@ -73,7 +104,7 @@ def main():
     # phylo_tree_mash = create_phylo_tree.neighbor_joining(distance_matrix, genome_order)
     # create_phylo_tree.print_tree(phylo_tree_mash)
 
-    # file_path = "dashing_distance_matrix.txt"
+    # file_path = "./distance_matrices/dashing_distance_matrix.txt"
     # names, distance_matrix_dashing = parse_dashing_matrix(file_path)
 
     # print("Dashing Distance Matrix")
@@ -82,11 +113,20 @@ def main():
     # phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
     # create_phylo_tree.print_tree(phylo_tree_dashing)
 
-    # Define the order of animal genomes for the distance matrix
+    # file_path = "./distance_matrices/dashing2_covid_dist_mat.txt"
+    # names, distance_matrix_dashing = parse_dashing2_matrix(file_path)
+
+    # print("Dashing2 Distance Matrix")
+    # print(distance_matrix_dashing)
+
+    # phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
+    # create_phylo_tree.print_tree(phylo_tree_dashing)
+
+    #Define the order of animal genomes for the distance matrix
     genome_order = ["chicken", "Drosophila", "frog-FOR2", "human", "mouse", "rat"]
 
     # Parse the animal mash distance matrix
-    file_path = 'mash_animal_distance_matrix.txt'
+    file_path = './distance_matrices/mash_animal_distance_matrix.txt'
     distance_matrix = parse_mash_distance(file_path, genome_order)
     
     # Print the resulting distance matrix
@@ -96,10 +136,19 @@ def main():
     phylo_tree_mash = create_phylo_tree.neighbor_joining(distance_matrix, genome_order)
     create_phylo_tree.print_tree(phylo_tree_mash)
 
-    file_path = "dashing_animal_distance_matrix.txt"
+    file_path = "./distance_matrices/dashing_animal_distance_matrix.txt"
     names, distance_matrix_dashing = parse_dashing_matrix(file_path)
 
     print("Dashing Distance Matrix")
+    print(distance_matrix_dashing)
+
+    phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)
+    create_phylo_tree.print_tree(phylo_tree_dashing)
+
+    file_path = "./distance_matrices/dashing2_animal_dist_mat.txt"
+    names, distance_matrix_dashing = parse_dashing2_matrix(file_path)
+
+    print("Dashing2 Distance Matrix")
     print(distance_matrix_dashing)
 
     phylo_tree_dashing = create_phylo_tree.neighbor_joining(distance_matrix_dashing, genome_order)

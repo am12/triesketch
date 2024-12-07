@@ -27,11 +27,11 @@ def find_depth_of_patricia_trie_simple(trie):
 def mash_dist(kmer_a, kmer_b, k, jaccard_sim_a = True):
     if jaccard_sim_a:
         j = find_distance_by_trie(kmer_a, kmer_b, k)
-        return (-1/k) * np.log(2 * j / (1 + j))
+        return (-1/k) * np.log(2 * j / (1 + j)) if j != 0 else (-1/k) * np.log(2 * 1e-6 / (1 + 1e-6))
     else:
         j = find_distance_by_trie_improved(kmer_a, kmer_b, k)
         trie_k = find_depth_of_patricia_trie_simple(kmer_a)
-        return (-1/trie_k) * np.log(2 * j / (1 + j))
+        return (-1/trie_k) * np.log(2 * j / (1 + j)) if j != 0 else (-1/trie_k) * np.log(2 * 1e-6 / (1 + 1e-6))
 
 def find_prefixes_of_length(trie, k):
     """Finds all unique prefixes of length k in the trie."""
