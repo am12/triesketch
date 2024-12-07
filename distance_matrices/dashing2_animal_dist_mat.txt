@@ -1,9 +1,0 @@
-#Dashing2 Symmetric pairwise Output
-#Dashing2Options: Dashing2Options;k:32;parsebyfile;trimchr;sketchsize:1024;sketchtype:onepermsetsketch;Fastx;canon
-#Sources	/home/smao10/zzz/triesketch/data/animal_data_set/chicken.fasta	/home/smao10/zzz/triesketch/data/animal_data_set/Drosophila.fasta	/home/smao10/zzz/triesketch/data/animal_data_set/frog-FOR2.fasta	/home/smao10/zzz/triesketch/data/animal_data_set/human.fasta	/home/smao10/zzz/triesketch/data/animal_data_set/mouse.fasta	/home/smao10/zzz/triesketch/data/animal_data_set/rat.fasta
-/home/smao10/zzz/triesketch/data/animal_data_set/chicken.fasta	-	0	0	0	0	0
-/home/smao10/zzz/triesketch/data/animal_data_set/Drosophila.fasta	-	-	0	0	0	0
-/home/smao10/zzz/triesketch/data/animal_data_set/frog-FOR2.fasta	-	-	-	0	0	0
-/home/smao10/zzz/triesketch/data/animal_data_set/human.fasta	-	-	-	-	0	0
-/home/smao10/zzz/triesketch/data/animal_data_set/mouse.fasta	-	-	-	-	-	0
-/home/smao10/zzz/triesketch/data/animal_data_set/rat.fasta	-	-	-	-	-	-
