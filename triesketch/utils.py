@@ -165,9 +165,7 @@ def find_depth_of_patricia_trie_simple(trie):
     current = trie.root
     depth = 0
 
-    # Traverse down a single path
     while current.children:
-        # Select one child arbitrarily and add its key length to depth
         key, next_node = next(iter(current.children.items()))
         depth += len(key)
         current = next_node
@@ -189,60 +187,47 @@ def find_prefixes_of_length(trie, k):
     results = []
 
     def traverse(node, prefix):
-        # If the accumulated prefix length is k, add it to results
         if len(prefix) == k:
             results.append(prefix)
             return
 
-        # Traverse children if the current prefix length is less than k
         for key, child in node.children.items():
             remaining_length = k - len(prefix)
             if len(key) <= remaining_length:
-                # Add the whole key if it fits within the remaining length
                 traverse(child, prefix + key)
             else:
-                # Add only the first part of the key to make the prefix length k
                 results.append(prefix + key[:remaining_length])
 
-    # Start traversal from the root with an empty prefix
     traverse(trie.root, "")
     return results
 
 # kmer_a and kmer_b are two tries
 def find_distance_by_trie(kmer_a: PatriciaTrie, kmer_b: PatriciaTrie, k):
-     # Use helper function to find all prefixes of length k
     prefixes_a = set(find_prefixes_of_length(kmer_a, k))
     prefixes_b = set(find_prefixes_of_length(kmer_b, k))
     
-    # Compute the intersection (shared prefixes) and union (unique prefixes)
     jaccard_num = len(prefixes_a & prefixes_b)
     jaccard_denom = len(prefixes_a | prefixes_b)
     
     return jaccard_num / jaccard_denom
 
 def find_distance_by_trie_improved(trie_a, trie_b, k):
-    """Calculates Jaccard similarity based on prefixes of length k."""
     
-    # Step 1: Extract all prefixes of length k
     prefixes_a = set(find_prefixes_of_length(trie_a, k))
     prefixes_b = set(find_prefixes_of_length(trie_b, k))
     
-    # Step 2: Compute shared prefixes
     shared_prefixes = prefixes_a & prefixes_b
     
-    # Step 3: Compute the numerator (shared prefix count)
     shared_count = 0
     for prefix in shared_prefixes:
         count_a = trie_a.count_prefix_matches(prefix)
         count_b = trie_b.count_prefix_matches(prefix)
         shared_count += min(count_a, count_b)
     
-    # Step 4: Compute the total prefix count (denominator)
     total_count_a = sum(trie_a.count_prefix_matches(prefix) for prefix in prefixes_a)
     total_count_b = sum(trie_b.count_prefix_matches(prefix) for prefix in prefixes_b)
-    total_count = total_count_a + total_count_b - shared_count  # Avoid double-counting shared prefixes
+    total_count = total_count_a + total_count_b - shared_count
 
-    # Step 5: Calculate and return Jaccard similarity
     if total_count == 0:
-        return 0  # Avoid division by zero
+        return 0  #avoid division by zero
     return shared_count / total_count

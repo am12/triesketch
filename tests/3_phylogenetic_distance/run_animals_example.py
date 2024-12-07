@@ -27,8 +27,8 @@ def main():
     for k in k_values:
         for i in range(len(final_dict)):
             for j in range(i + 1, len(final_dict)):
-                distance_matrix_1[i][j] = distance_matrix_1[j][i] = find_distance_by_trie(final_dict[i], final_dict[j], k)
-                distance_matrix_2[i][j] = distance_matrix_2[j][i] = find_distance_by_trie(final_dict[i], final_dict[j], k)
+                distance_matrix_1[i][j] = distance_matrix_1[j][i] = mash_dist(final_dict[i], final_dict[j], k, True)
+                distance_matrix_2[i][j] = distance_matrix_2[j][i] = mash_dist(final_dict[i], final_dict[j], k, False)
         tree_using_approach1 = neighbor_joining(distance_matrix_1, names)
         tree_using_approach2 = neighbor_joining(distance_matrix_2, names)
         
