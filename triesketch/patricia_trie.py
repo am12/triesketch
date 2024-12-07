@@ -1,8 +1,8 @@
 class PatriciaTrieNode:
     def __init__(self, key=""):
-        self.key = key  # The substring stored at this node
-        self.children = {}  # Dictionary mapping substrings to child nodes
-        self.is_end_of_word = False  # True if the node represents the end of a word
+        self.key = key  # substring represented by the node
+        self.children = {}  # dictionary of child nodes
+        self.is_end_of_word = False  # denotes if the node represents the end of a word
 
 class PatriciaTrie:
     def __init__(self, keys=None):

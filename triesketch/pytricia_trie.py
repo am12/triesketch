@@ -11,7 +11,7 @@ class PytriciaTrie:
         self.trie = patricia.trie()
         if keys:
             for key in keys:
-                self.trie[key] = True  # Store True as the value since we're only tracking existence
+                self.trie[key] = True  # store True as the value since we're only tracking existence
 
     def __name__(self):
         return "PytriciaTrie"
