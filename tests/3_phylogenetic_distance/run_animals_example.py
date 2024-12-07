@@ -2,9 +2,9 @@ from triesketch.utils import *
 import numpy as np
 
 def main():
-    names = ["MZ169912", "MZ219592", "MW913395", "LC623948", "MW981442", "MZ202314", "MW789246", "MZ277392"]
+    names = ["chicken", "Drosophila", "frog-FOR2", "human", "mouse", "rat"]
     #read in files
-    genome_files = [f'./data/covid/{names[i]}.fasta' for i in range(0,len(names))] 
+    genome_files = [f'./data/animal_data_set/{names[i]}.fasta' for i in range(0,len(names))] 
     final_dict = []
     
     kmer_length = 21
