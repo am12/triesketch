@@ -1,5 +1,0 @@
-/home/smao10/zzz/triesketch/data/bacteria/cyanobacterium_aponinum.fna
-/home/smao10/zzz/triesketch/data/bacteria/escherichia_coli.fna
-/home/smao10/zzz/triesketch/data/bacteria/helicobacter_pylori.fna
-/home/smao10/zzz/triesketch/data/bacteria/klebsiella.fna
-/home/smao10/zzz/triesketch/data/bacteria/listeria_innocua.fna
