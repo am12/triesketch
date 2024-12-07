@@ -6,5 +6,3 @@ compare similar trie data structures in terms of their prefix search and count t
 - our implementation of patricia trie (PatriciaTrie)
 measured time and memory usage
 used increasing k-mer lengths to see growth over query size
-
-# findings

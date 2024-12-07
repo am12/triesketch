@@ -9,4 +9,3 @@ test various trie-like data structures in their ability to build an index from k
 measured time and memory usage
 used increasing partitions of CHM13 chr22 (1-10%) to see growth over input size
 
-# findings
