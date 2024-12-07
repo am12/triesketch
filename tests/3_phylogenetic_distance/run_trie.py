@@ -22,8 +22,11 @@ def main(genome_file_path, output_base, kmer_length=21, k_values=[21], sketch_si
             print(f"Error: No sequences found in '{genome_file}'.")
             continue
         kmers = generate_kmers(sequences, kmer_length)
+        print('generated kmers')
         sketch_kmers = minhash(kmers, sketch_size)
+        print('hashed')
         trie = PatriciaTrie(keys=sketch_kmers)
+        print('generated trie')
         final_dict.append(trie)
     
     distance_matrix_1 = np.zeros((len(names), len(names)))
@@ -32,8 +35,8 @@ def main(genome_file_path, output_base, kmer_length=21, k_values=[21], sketch_si
     for k in k_values:
         for i in range(len(final_dict)):
             for j in range(i + 1, len(final_dict)):
-                distance_matrix_1[i][j] = distance_matrix_1[j][i] = find_distance_by_trie(final_dict[i], final_dict[j], k)
-                distance_matrix_2[i][j] = distance_matrix_2[j][i] = find_distance_by_trie_improved(final_dict[i], final_dict[j], k)
+                distance_matrix_1[i][j] = distance_matrix_1[j][i] = mash_dist(final_dict[i], final_dict[j], k, True)
+                distance_matrix_2[i][j] = distance_matrix_2[j][i] = mash_dist(final_dict[i], final_dict[j], k, False)
         
         np.savetxt(f'{output_base}_distance_matrix_1_k{k}.txt', distance_matrix_1, fmt='%.6f')
         np.savetxt(f'{output_base}_distance_matrix_2_k{k}.txt', distance_matrix_2, fmt='%.6f')
@@ -45,7 +48,8 @@ def main(genome_file_path, output_base, kmer_length=21, k_values=[21], sketch_si
         print_tree(tree_using_approach2)
 
 if __name__ == "__main__":
-    for group in ['covid', 'bacteria', 'eukarya']: 
+    for group in ['bacteria', 'eukarya']: 
+        print(group)
         genome_file_path = f'./data/{group}/genomes.txt'
         output_base = f'./tests/3_phylogenetic_distance/{group}'
         kmer_length = 31
